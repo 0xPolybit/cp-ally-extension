@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CP Ally for Codeforces</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img src="logo.png" alt="CP Ally logo" class="logo" />
+      <div class="titles">
+        <h1 class="title">CP Ally</h1>
+        <p class="subtitle">for Codeforces</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <p id="status" class="status">Checking current tab…</p>
+      <div id="code-badge" class="code-badge" hidden></div>
+      <button id="open-btn" class="open-btn" type="button" disabled>
+        Open in CP Ally
+      </button>
+    </main>
+
+    <footer class="footer">
+      Shortcut: <kbd>Ctrl</kbd> + <kbd>B</kbd> on a problem page
+    </footer>
+
+    <script src="cf.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

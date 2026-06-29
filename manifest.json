@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "CP Ally for Codeforces",
+  "version": "1.0.0",
+  "description": "Press Ctrl+B on a Codeforces problem page to open it in CP Ally (cpally://problem/<code>).",
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "action": {
+    "default_title": "CP Ally for Codeforces",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo.png",
+      "32": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  },
+  "host_permissions": [
+    "*://codeforces.com/*",
+    "*://*.codeforces.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://codeforces.com/*",
+        "*://*.codeforces.com/*"
+      ],
+      "js": ["cf.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
