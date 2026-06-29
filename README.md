@@ -12,7 +12,7 @@ extension launches `cpally://problem/<code>` — e.g. `cpally://problem/4A`.
   `codeforces.com`, so the extension has no access to any other site.
 - **One shortcut.** <kbd>Ctrl</kbd> + <kbd>B</kbd> on a problem page opens it in
   CP Ally and shows a small confirmation toast.
-- **In-page button.** A white **OPEN IN CP ALLY IDE** button (with the logo) is
+- **In-page button.** A white **Open in CP Ally IDE** button (with the logo) is
   added to the contest-details panel in the right sidebar and does the same thing.
 - **Popup fallback.** Click the toolbar icon to see the detected problem code
   and an **Open in CP Ally** button.
@@ -73,7 +73,7 @@ After editing any file, return to `chrome://extensions` and click the **reload**
 
 - Open a Codeforces problem, e.g. <https://codeforces.com/contest/4/problem/A>.
 - Press <kbd>Ctrl</kbd> + <kbd>B</kbd> → CP Ally opens `cpally://problem/4A`.
-- Or click **OPEN IN CP ALLY IDE** in the contest panel on the right.
+- Or click **Open in CP Ally IDE** in the contest panel on the right.
 - Or click the toolbar icon and press **Open in CP Ally**.
 
 ## Testing

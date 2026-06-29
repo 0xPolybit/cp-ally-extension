@@ -71,7 +71,7 @@ function showToast(message) {
 }
 
 /* ---------------------------------------------------------------------------
- * "OPEN IN CP ALLY IDE" button
+ * "Open in CP Ally IDE" button
  *
  * Adds a button to the contest-details panel in the right sidebar — the box
  * showing the contest title and phase — that does exactly what Ctrl+B does.
@@ -103,7 +103,7 @@ function findContestDetailsBox() {
 }
 
 /**
- * Build the white "OPEN IN CP ALLY IDE" button — black text, logo on the left.
+ * Build the white "Open in CP Ally IDE" button — black text, logo on the left.
  * @param {string} code e.g. "4A"
  * @returns {HTMLElement}
  */
@@ -142,7 +142,7 @@ function buildSidebarButton(code) {
   });
 
   const label = document.createElement('span');
-  label.textContent = 'OPEN IN CP ALLY IDE';
+  label.textContent = 'Open in CP Ally IDE';
 
   button.append(logo, label);
   button.addEventListener('click', (event) => {
@@ -169,7 +169,7 @@ function injectSidebarButton() {
   if (!box) return false; // no contest sidebar on this page
 
   box.appendChild(buildSidebarButton(code));
-  console.log(`[CP Ally] added "OPEN IN CP ALLY IDE" button for ${code}`);
+  console.log(`[CP Ally] added "Open in CP Ally IDE" button for ${code}`);
   return true;
 }
 
