@@ -32,5 +32,14 @@
       "js": ["cf.js", "content.js"],
       "run_at": "document_idle"
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["logo.png"],
+      "matches": [
+        "*://codeforces.com/*",
+        "*://*.codeforces.com/*"
+      ]
+    }
   ]
 }
