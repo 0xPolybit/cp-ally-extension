@@ -12,14 +12,52 @@
         <h1 class="title">CP Ally</h1>
         <p class="subtitle">for Codeforces</p>
       </div>
+      <span id="version" class="version"></span>
     </header>
 
-    <main class="content">
-      <p id="status" class="status">Checking current tab…</p>
-      <div id="code-badge" class="code-badge" hidden></div>
-      <button id="open-btn" class="open-btn" type="button" disabled>
-        Open in CP Ally
+    <!-- Shown when the active tab is a Codeforces problem -->
+    <main id="problem-view" class="content" hidden>
+      <p class="label">Detected problem</p>
+      <div class="code-row">
+        <span id="code-badge" class="code-badge">—</span>
+        <span id="kind-badge" class="kind-badge"></span>
+      </div>
+
+      <button id="open-btn" class="btn btn-primary" type="button">
+        <img src="logo.png" alt="" class="btn-logo" />
+        <span>Open in CP Ally IDE</span>
       </button>
+
+      <p class="label">Quick links</p>
+      <nav class="links">
+        <a id="link-statement" class="link" target="_blank" rel="noopener">Statement</a>
+        <a id="link-submit" class="link" target="_blank" rel="noopener">Submit</a>
+        <a id="link-my" class="link" target="_blank" rel="noopener">My submissions</a>
+        <a id="link-standings" class="link" target="_blank" rel="noopener">Standings</a>
+      </nav>
+
+      <div class="copy-row">
+        <button id="copy-link" class="btn btn-ghost" type="button">Copy cpally:// link</button>
+        <button id="copy-code" class="btn btn-ghost" type="button">Copy code</button>
+      </div>
+
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+    </main>
+
+    <!-- Shown when the active tab is NOT a Codeforces problem -->
+    <main id="empty-view" class="content" hidden>
+      <p class="empty-text">
+        Open a Codeforces problem to get started, then press
+        <kbd>Ctrl</kbd> + <kbd>B</kbd> or use this popup.
+      </p>
+      <a
+        class="btn btn-primary"
+        href="https://codeforces.com/problemset"
+        target="_blank"
+        rel="noopener"
+      >
+        Browse Problemset
+      </a>
     </main>
 
     <footer class="footer">

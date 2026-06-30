@@ -19,6 +19,7 @@
       "128": "logo.png"
     }
   },
+  "permissions": ["clipboardWrite"],
   "host_permissions": [
     "*://codeforces.com/*",
     "*://*.codeforces.com/*"

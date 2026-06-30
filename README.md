@@ -14,8 +14,10 @@ extension launches `cpally://problem/<code>` — e.g. `cpally://problem/4A`.
   CP Ally and shows a small confirmation toast.
 - **In-page button.** A white **Open in CP Ally IDE** button (with the logo) is
   added to the contest-details panel in the right sidebar and does the same thing.
-- **Popup fallback.** Click the toolbar icon to see the detected problem code
-  and an **Open in CP Ally** button.
+- **Toolbar popup.** Click the icon (next to the URL bar) for a small GUI: the
+  detected problem code, an **Open in CP Ally IDE** button, quick links to the
+  problem's Statement / Submit / My submissions / Standings pages, and
+  copy-to-clipboard helpers for the code and the `cpally://` link.
 - **No build step, no dependencies.** Just static files you load unpacked.
 
 ## How it works
@@ -74,7 +76,7 @@ After editing any file, return to `chrome://extensions` and click the **reload**
 - Open a Codeforces problem, e.g. <https://codeforces.com/contest/4/problem/A>.
 - Press <kbd>Ctrl</kbd> + <kbd>B</kbd> → CP Ally opens `cpally://problem/4A`.
 - Or click **Open in CP Ally IDE** in the contest panel on the right.
-- Or click the toolbar icon and press **Open in CP Ally**.
+- Or click the toolbar icon and use the popup (Open button, quick links, copy).
 
 ## Testing
 

@@ -11,26 +11,19 @@
  * module wiring.
  */
 
-// Recognised Codeforces problem URL shapes. Each pattern captures
-// (contestId, index); the problem "code" is the two joined, e.g. 4 + A => "4A".
-const CF_PROBLEM_PATTERNS = [
-  // https://codeforces.com/contest/4/problem/A
-  /^\/contest\/(\d+)\/problem\/([A-Za-z]\d*)\/?$/,
-  // https://codeforces.com/problemset/problem/4/A
-  /^\/problemset\/problem\/(\d+)\/([A-Za-z]\d*)\/?$/,
-  // https://codeforces.com/gym/102222/problem/A
-  /^\/gym\/(\d+)\/problem\/([A-Za-z]\d*)\/?$/,
-  // https://codeforces.com/group/<groupId>/contest/4/problem/A
-  /^\/group\/[^/]+\/contest\/(\d+)\/problem\/([A-Za-z]\d*)\/?$/,
-];
-
 /**
- * Extract the problem code (e.g. "4A") from a Codeforces URL.
+ * Parse a Codeforces URL into its problem parts.
  * Returns null when the URL is not a recognised problem page.
+ *
  * @param {string} url
- * @returns {string|null}
+ * @returns {{code:string, contestId:string, index:string, kind:string, base:string}|null}
+ *   code     e.g. "4A"            (contestId + index)
+ *   contestId e.g. "4"
+ *   index    e.g. "A"            (uppercased; may include a digit, e.g. "F2")
+ *   kind     "contest" | "problemset" | "gym" | "group"
+ *   base     path prefix for related tabs, e.g. "/contest/4"
  */
-function extractProblemCode(url) {
+function extractProblem(url) {
   let pathname;
   try {
     pathname = new URL(url).pathname;
@@ -38,15 +31,35 @@ function extractProblemCode(url) {
     return null; // not a valid/absolute URL (e.g. an empty tab)
   }
 
-  for (const pattern of CF_PROBLEM_PATTERNS) {
-    const match = pathname.match(pattern);
-    if (match) {
-      const contestId = match[1];
-      const index = match[2].toUpperCase();
-      return `${contestId}${index}`;
-    }
+  let m;
+  if ((m = pathname.match(/^\/contest\/(\d+)\/problem\/([A-Za-z]\d*)\/?$/))) {
+    return makeProblem(m[1], m[2], 'contest', `/contest/${m[1]}`);
+  }
+  if ((m = pathname.match(/^\/problemset\/problem\/(\d+)\/([A-Za-z]\d*)\/?$/))) {
+    return makeProblem(m[1], m[2], 'problemset', `/contest/${m[1]}`);
+  }
+  if ((m = pathname.match(/^\/gym\/(\d+)\/problem\/([A-Za-z]\d*)\/?$/))) {
+    return makeProblem(m[1], m[2], 'gym', `/gym/${m[1]}`);
+  }
+  if ((m = pathname.match(/^\/group\/([^/]+)\/contest\/(\d+)\/problem\/([A-Za-z]\d*)\/?$/))) {
+    return makeProblem(m[2], m[3], 'group', `/group/${m[1]}/contest/${m[2]}`);
   }
   return null;
+}
+
+function makeProblem(contestId, index, kind, base) {
+  const idx = index.toUpperCase();
+  return { code: `${contestId}${idx}`, contestId, index: idx, kind, base };
+}
+
+/**
+ * Extract just the problem code (e.g. "4A") from a Codeforces URL, or null.
+ * @param {string} url
+ * @returns {string|null}
+ */
+function extractProblemCode(url) {
+  const problem = extractProblem(url);
+  return problem ? problem.code : null;
 }
 
 /**
