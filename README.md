@@ -17,7 +17,8 @@ extension launches `cpally://problem/<code>` — e.g. `cpally://problem/4A`.
 - **Toolbar popup.** Click the icon (next to the URL bar) for a small GUI: the
   detected problem code, an **Open in CP Ally IDE** button, quick links to the
   problem's Statement / Submit / My submissions / Standings pages, and
-  copy-to-clipboard helpers for the code and the `cpally://` link.
+  copy-to-clipboard helpers for the code and the `cpally://` link. Dark theme
+  with a neon-green accent.
 - **No build step, no dependencies.** Just static files you load unpacked.
 
 ## How it works

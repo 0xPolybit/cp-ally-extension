@@ -1,3 +1,22 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-2: #1c222b;
+  --border: #2a313c;
+  --text: #e6edf3;
+  --muted: #8b949e;
+
+  /* neon green accent */
+  --accent: #39ff14;
+  --accent-hover: #5cff40;
+  --accent-contrast: #06130a; /* text sitting on the accent */
+  --accent-soft: rgba(57, 255, 20, 0.12);
+  --accent-border: rgba(57, 255, 20, 0.45);
+  --accent-glow: rgba(57, 255, 20, 0.35);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,8 +25,8 @@ body {
   width: 300px;
   margin: 0;
   font-family: system-ui, "Segoe UI", Arial, sans-serif;
-  background: #ffffff;
-  color: #1f2330;
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* Header ------------------------------------------------------------------ */
@@ -16,7 +35,7 @@ body {
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  border-bottom: 1px solid #eceef2;
+  border-bottom: 1px solid var(--border);
 }
 
 .logo {
@@ -33,18 +52,19 @@ body {
 .title {
   margin: 0;
   font-size: 17px;
+  color: var(--text);
 }
 
 .subtitle {
   margin: 2px 0 0;
   font-size: 12px;
-  color: #6b7280;
+  color: var(--muted);
 }
 
 .version {
   margin-left: auto;
   font-size: 11px;
-  color: #9ca3af;
+  color: var(--muted);
 }
 
 /* Content ----------------------------------------------------------------- */
@@ -61,7 +81,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: var(--muted);
 }
 
 .code-row {
@@ -75,17 +95,19 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #1d4ed8;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
   border-radius: 8px;
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 .kind-badge {
   font-size: 11px;
   font-weight: 600;
-  color: #6b7280;
-  background: #f3f4f6;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: 999px;
   padding: 3px 9px;
 }
@@ -108,16 +130,20 @@ body {
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, color 0.15s ease;
 }
 
 .btn-primary {
-  color: #ffffff;
-  background: #2563eb;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 .btn-primary:hover {
-  background: #1d4ed8;
+  background: var(--accent-hover);
+  box-shadow: 0 0 16px var(--accent-glow);
 }
 
 .btn-logo {
@@ -128,16 +154,17 @@ body {
 
 .btn-ghost {
   flex: 1;
-  color: #1f2330;
-  background: #ffffff;
-  border-color: #d1d5db;
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
   font-size: 12px;
   padding: 8px 10px;
 }
 
 .btn-ghost:hover {
-  background: #f9fafb;
-  border-color: #9ca3af;
+  background: var(--surface-2);
+  border-color: var(--accent-border);
+  color: var(--accent);
 }
 
 /* Quick links ------------------------------------------------------------- */
@@ -152,17 +179,17 @@ body {
   font-size: 12px;
   text-align: center;
   text-decoration: none;
-  color: #374151;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .link:hover {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #1d4ed8;
+  background: var(--surface-2);
+  border-color: var(--accent-border);
+  color: var(--accent);
 }
 
 .copy-row {
@@ -174,7 +201,7 @@ body {
   margin: 0;
   min-height: 14px;
   font-size: 12px;
-  color: #059669;
+  color: var(--accent);
   opacity: 0;
   transition: opacity 0.15s ease;
 }
@@ -188,23 +215,24 @@ body {
   margin: 0;
   font-size: 13px;
   line-height: 1.5;
-  color: #374151;
+  color: var(--muted);
 }
 
 /* Footer ------------------------------------------------------------------ */
 .footer {
   padding: 10px 16px 14px;
   font-size: 11px;
-  color: #6b7280;
+  color: var(--muted);
   text-align: center;
-  border-top: 1px solid #eceef2;
+  border-top: 1px solid var(--border);
 }
 
 kbd {
   padding: 1px 5px;
   font-family: inherit;
   font-size: 11px;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: 4px;
 }
